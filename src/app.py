@@ -80,7 +80,7 @@ def main():
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, random_state = 42)
 
-    model = SelectKBest(chi2, k=7)
+    model = SelectKBest(chi2, k=5)
     model.fit(X_train, y_train)
     features_selected = model.get_support()
     X_train = pd.DataFrame(model.transform(X_train), columns = X_train.columns.values[features_selected])
